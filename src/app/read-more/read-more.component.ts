@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-read-more',
@@ -7,11 +7,13 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ReadMoreComponent implements OnInit {
   @Input() content: string;
   @Input() limit: number;
+  @Output() newItemEvent = new EventEmitter;
+  shortDescription: string;
 
   constructor() { }
 
   ngOnInit(): void {
-    this.content = this.formatContent(this.content);
+    this.shortDescription = this.formatContent(this.content);
   }
 
   formatContent(content: string) {
@@ -20,7 +22,7 @@ export class ReadMoreComponent implements OnInit {
   }
 
   // change naming here and implement logic
-  test(): void {
-    console.log('test');
+  onClickAction(): void {
+    this.newItemEvent.emit(this.content);
   }
 }

@@ -1,10 +1,10 @@
 <div class="container">
   <div class="row">
-    <ng-container *ngFor="let content of items">
+    <ng-container *ngFor="let content of crdContent">
       <div class="col-6 mt-4 mb-2">
         <div class="card h-100">
           <div class="card-body">
-            <app-read-more [limit]="150" [content]="content"></app-read-more>
+            <app-read-more [limit]="150" [content]="content" (newItemEvent)="onClickAction($event)"></app-read-more>
           </div>
         </div>
       </div>
