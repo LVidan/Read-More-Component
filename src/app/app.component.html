@@ -1,3 +1,13 @@
 <div class="container">
-  ovo je proba
+  <div class="row">
+    <ng-container *ngFor="let content of items">
+      <div class="col-6">
+        <div class="card mt-4">
+          <div class="card-body">
+            <app-read-more [limit]="200" [content]="content"></app-read-more>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
 </div>
