@@ -11,8 +11,16 @@ export class ReadMoreComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(`Limit: ${this.limit}, Content: ${this.content}`);
-
+    this.content = this.formatContent(this.content);
   }
 
+  formatContent(content: string) {
+    this.limit = content.substring(0, this.limit).lastIndexOf('');
+    return `${content.substring(0, this.limit)}...`;
+  }
+
+  // change naming here and implement logic
+  test(): void {
+    console.log('test');
+  }
 }
